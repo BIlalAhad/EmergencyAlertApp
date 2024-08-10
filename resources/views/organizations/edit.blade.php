@@ -1,0 +1,61 @@
+@extends('layouts.app')
+
+
+@section('content')
+    <div class="container mt-4">
+        <div class="row mb-4">
+            <div class="col-lg-6">
+                <h2>Edit Organization</h2>
+            </div>
+            <div class="col-lg-6 text-lg-end">
+                <a class="btn btn-primary" href="{{ route('organizations.index') }}">Back</a>
+            </div>
+        </div>
+
+        @if ($errors->any())
+            <div class="alert alert-danger mb-4">
+                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ route('organizations.update', $organization->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <div class="form-floating">
+                        <input type="text" name="name" value="{{ $organization->name }}" class="form-control"
+                            id="name" placeholder="Name">
+                        <label for="name">Name</label>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <div class="form-floating">
+                        <input type="email" name="email" value="{{ $organization->email }}" class="form-control"
+                            id="email" placeholder="Email">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <div class="form-floating">
+                        <input type="text" name="phone" value="{{ $organization->phone }}" class="form-control"
+                            id="phone" placeholder="Phone">
+                        <label for="phone">Phone</label>
+                    </div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+@endsection
