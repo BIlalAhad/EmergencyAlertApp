@@ -9,18 +9,18 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <!-- Styles -->
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-        html {
-            line-height: 1.15;
-            -webkit-text-size-adjust: 100%
-        }
 
-        body {
-            margin: 0
-        }
 
         a {
             background-color: transparent
@@ -395,42 +395,99 @@
                 color: rgba(107, 114, 128, var(--tw-text-opacity))
             }
         }
+
+        .negative-z-index {
+            z-index: -10;
+        }
     </style>
 
     <style>
         body {
             font-family: 'Nunito', sans-serif;
         }
+
+        body {
+            background: #eee;
+        }
+
+        span {
+            font-size: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0062cc;
+            border-bottom: 2px solid #0062cc;
+        }
+
+        .box {
+            padding: 60px 0px;
+        }
+
+        .box-part {
+            background: #FFF;
+            border-radius: 0;
+            padding: 60px 10px;
+            margin: 30px 0px;
+        }
+
+        .text {
+            margin: 20px 0px;
+        }
+
+        .fa {
+            color: #4183D7;
+        }
     </style>
 </head>
 
 <body class="antialiased">
-    <div
-        class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+    <div class="">
         @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+            <div class=" fixed top-0 right-0 px-6 py-4 block">
                 @auth
-                    <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                    <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 ">Dashboard</a>
                 @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                    <a href="{{ route('login') }}" class="btn btn-primary">Log in</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        <a href="{{ route('register') }}" class="btn btn-secondary">Register</a>
                     @endif
                 @endauth
             </div>
         @endif
 
-        <li>
-            @foreach ($organization as $item)
-                <ul>
-                    <a href="{{ route('AlertForm', $item->id) }}">
-                        <li>{{ $item->name }}</li>
-                    </a>
-                </ul>
-            @endforeach
-        </li>
+    </div>
+    <div class="box  ">
+        <div class="container">
+            <div class="row">
+
+                @foreach ($organization as $item)
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                        <div class="box-part text-center">
+
+                            <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+
+                            <div class="title">
+                                <a href="{{ route('AlertForm', $item->id) }}">
+                                    <h4>{{ $item->name }}</h4>
+                                </a>
+                            </div>
+
+                            <div class="text">
+                                <span>{{ $item->email }}</span>
+                            </div>
+
+                            <a href="{{ route('AlertForm', $item->id) }}">Learn More</a>
+
+                        </div>
+                    </div>
+                @endforeach
+
+
+            </div>
+        </div>
     </div>
 </body>
 

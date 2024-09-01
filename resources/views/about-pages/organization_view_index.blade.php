@@ -20,22 +20,24 @@
 
         <!-- About Page Content -->
         @if ($about)
-            <div class="row mb-4">
+            <div class="row mb-4 text-center shadow-sm ">
                 <!-- Heading and Content for First Section -->
-                <div class="col-md-6">
-                    <h2 class="text-xl font-bold mb-2">{{ $about->heading_1 }}</h2>
+                <div class="col-md-6  p-3">
                     @if ($about->image_1)
-                        <img src="{{ Storage::url($about->image_1) }}" alt="Image 1" class="img-fluid mb-3 rounded">
+                        <img src="{{ Storage::url($about->image_1) }}" alt="Image 1"
+                            class="img-fluid mb-3  w-full h-[200px] object-cover">
                     @endif
+                    <h2 class="text-xl font-bold mb-2">{{ $about->heading_1 }}</h2>
                     <p><i>{{ $about->paragraph_1 }}</i></p>
                 </div>
 
                 <!-- Heading and Content for Second Section -->
-                <div class="col-md-6">
-                    <h2 class="text-xl font-bold mb-2">{{ $about->heading_2 }}</h2>
+                <div class="col-md-6 justify-center  p-3">
                     @if ($about->image_2)
-                        <img src="{{ Storage::url($about->image_2) }}" alt="Image 2" class="img-fluid mb-3 rounded">
+                        <img src="{{ Storage::url($about->image_2) }}" alt="Image 2"
+                            class="img-fluid mb-3  w-full h-[200px] object-cover">
                     @endif
+                    <h2 class="text-xl font-bold mb-2">{{ $about->heading_2 }}</h2>
                     <p><i>{{ $about->paragraph_2 }}</i></p>
                 </div>
             </div>

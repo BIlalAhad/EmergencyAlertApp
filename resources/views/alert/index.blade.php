@@ -19,22 +19,22 @@
             <input type="text" name="address" class="form-control" id="address" placeholder="1234 Main St">
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-6 mt-2">
                 <label for="inputCity">City</label>
-                <input type="text" name="city" class="form-control" id="inputCity">
+                <input type="text" name="city" class="form-control mt-1" id="inputCity">
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-2 mt-2">
                 <label for="inputZip">Zip</label>
-                <input type="text" name="zip" class="form-control" id="inputZip">
+                <input type="text" name="zip" class="form-control mt-1" id="inputZip">
             </div>
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-6 mt-2">
             <label for="inputCity">CNIC</label>
-            <input type="file" name="CNIC" class="form-control" id="inputCity">
+            <input type="file" name="CNIC" class="form-control mt-1" id="inputCity">
         </div>
         <input type="hidden" name="latitude" id="latitude">
         <input type="hidden" name="longitude" id="longitude">
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="submit" class="btn btn-primary mt-3">send</button>
     </form>
 
     <script src="{{ mix('js/app.js') }}"></script>

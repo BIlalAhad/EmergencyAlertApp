@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 // use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rules\Password;
+// use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Validation\Rules\Password as PasswordRule;
 
@@ -96,29 +97,7 @@ class AuthController extends Controller
     }
 
 
-    public function reset_password(Request $request)
-    {
-        // Validate the request data
-        $request->validate([
-            'email' => 'required|email',
-            'password' => ['required', 'confirmed', Password::defaults()],
-        ]);
-
-        // Find the user by email
-        $user = User::where('email', $request->email)->first();
-
-        // Check if user exists
-        if (!$user) {
-            return response()->json(['error' => 'User not found'], 404);
-        }
-
-        // Hash the new password
-        $user->password = Hash::make($request->password);
-        $user->save();
-
-        // Return a success response
-        return response()->json(['success' => 'Password reset successfully']);
-    }
+    
 
 
     public function logout(Request $request)
