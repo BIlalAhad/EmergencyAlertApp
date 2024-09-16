@@ -51,8 +51,8 @@
                     </div>
                 </div>
 
-                <div class="mt-6">
-                    <a href="{{ route('edit_profile') }}" class="text-blue-500 hover:underline">Edit Profile</a>
+                <div class="mt-6 btn btn-primary text-light">
+                    <a href="{{ route('edit_profile') }}" class="">Edit Profile</a>
                 </div>
             </div>
         </div>

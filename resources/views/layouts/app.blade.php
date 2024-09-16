@@ -91,35 +91,32 @@
         <nav class="bg-white border-gray-200 dark:bg-gray-900">
             <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
                 <a href="{{ url('/') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-                </a>
-                <div class="flex items-center space-x-6 rtl:space-x-reverse">
-                    @guest
-                        @if (Route::has('login'))
-                            <a href="{{ route('login') }}" class="text-sm text-blue-600 dark:text-blue-500 hover:underline">
-                                {{ __('Login') }}
+                    <img src="{{ asset('logo.png') }}" class="h-16" alt=" Logo" />
+                    <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                        @guest
+                            @if (Route::has('login'))
+                                <a href="{{ route('login') }}" class="  btn btn-primary">
+                                    {{ __('Login') }}
+                                </a>
+                            @endif
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class=" btn btn-secondary">
+                                    {{ __('Register') }}
+                                </a>
+                            @endif
+                        @else
+                            <div class="text-sm text-gray-500 dark:text-white hover:underline">
+                                {{ Auth::user()->name }}
+                            </div>
+                            <a class="btn btn-primary " href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
                             </a>
-                        @endif
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}"
-                                class="text-sm text-blue-600 dark:text-blue-500 hover:underline">
-                                {{ __('Register') }}
-                            </a>
-                        @endif
-                    @else
-                        <div class="text-sm text-gray-500 dark:text-white hover:underline">
-                            {{ Auth::user()->name }}
-                        </div>
-                        <a class="text-sm text-blue-600 dark:text-blue-500 hover:underline" href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                            @csrf
-                        </form>
-                    @endguest
-                </div>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                                @csrf
+                            </form>
+                        @endguest
+                    </div>
             </div>
         </nav>
 

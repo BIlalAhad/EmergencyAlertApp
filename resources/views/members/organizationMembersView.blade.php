@@ -410,7 +410,7 @@
             a {
                 text-decoration: none;
                 color: #0062cc;
-                border-bottom: 2px solid #0062cc;
+                /* border-bottom: 2px solid #0062cc; */
             }
 
             .box {

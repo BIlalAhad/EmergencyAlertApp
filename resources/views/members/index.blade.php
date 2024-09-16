@@ -48,7 +48,7 @@
                             @csrf
                             {{-- <input type="hidden" name="user" value="{{ $user->id }}">
                             <input type="hidden" name="organization" value="{{ $id }}"> --}}
-                            <button type="submit">Add</button>
+                            <button class="btn btn-primary" type="submit">Add</button>
                         </form>
 
                     </th>

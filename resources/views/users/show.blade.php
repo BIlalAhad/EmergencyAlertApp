@@ -5,7 +5,7 @@
     <div class="container mt-4">
         <div class="row mb-4">
             <div class="col-lg-6">
-                <h2 class="">Show User</h2>
+                <h2 class="text-lg font-bold">Show User</h2>
             </div>
             <div class="col-lg-6 text-lg-end">
                 <a class="btn btn-primary" href="{{ route('users.index') }}">Back</a>

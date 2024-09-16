@@ -417,7 +417,7 @@
         a {
             text-decoration: none;
             color: #0062cc;
-            border-bottom: 2px solid #0062cc;
+            /* border-bottom: 2px solid #0062cc; */
         }
 
         .box {
@@ -458,7 +458,7 @@
         @endif
 
     </div>
-    <div class="box  ">
+    <div class="box  " style=" position: relative;  z-index: -10;">
         <div class="container">
             <div class="row">
 
@@ -467,7 +467,8 @@
 
                         <div class="box-part text-center">
 
-                            <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+                            {{-- <i class="fa fa-instagram fa-3x" aria-hidden="true"></i> --}}
+                            {{-- <i class="fa-solid fa-font-awesome"></i> --}}
 
                             <div class="title">
                                 <a href="{{ route('AlertForm', $item->id) }}">
@@ -479,7 +480,7 @@
                                 <span>{{ $item->email }}</span>
                             </div>
 
-                            <a href="{{ route('AlertForm', $item->id) }}">Learn More</a>
+                            <a class="btn btn-primary" href="{{ route('AlertForm', $item->id) }}">Alert</a>
 
                         </div>
                     </div>
