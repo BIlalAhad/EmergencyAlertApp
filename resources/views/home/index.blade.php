@@ -458,7 +458,7 @@
         @endif
 
     </div>
-    <div class="box  " style=" position: relative;  z-index: -10;">
+    <div class="box  " style=" ">
         <div class="container">
             <div class="row">
 
